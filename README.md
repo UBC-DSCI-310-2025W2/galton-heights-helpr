@@ -13,3 +13,6 @@ DO NOT MERGE THE NEW BRANCH I MADE
 - i did that just so I had somewhere to start so I could push the package to its own repo
 - the testing suite runs there but wont run on its own here??
 
+
+
+Source: https://r-pkgs.org/whole-game.html#load-devtools-and-friends
