@@ -1,43 +1,44 @@
+
 # function input for tests for plot_regression_scatterplot
 
 # ---------------- HELPER DATA FOR TESTS ------------------------------------
 
-# For Expected Cases ----------------------------- 
-two_numeric_columns <- data.frame(x=1:4, 
+# For Expected Cases -----------------------------
+two_numeric_columns <- data.frame(x=1:4,
                                   y=10:13,
                                    neg_x = -4:-1,
                                   neg_y=-13:-10)
 
-two_numeric_columns_color <- data.frame(x=1:4, 
+two_numeric_columns_color <- data.frame(x=1:4,
                                         y=8:11,
                                         z=444:447)
 
-mixed_col_types_df <- data.frame(x=c(100.00, 2123, 8723.9983, 123), 
+mixed_col_types_df <- data.frame(x=c(100.00, 2123, 8723.9983, 123),
                                  y=-11:-8,
                                  z=c("apple", "apple", "orange", "orange"))
 
 
-missing_df <- data.frame(x=c(NA, 100, 723.9983, 123), 
+missing_df <- data.frame(x=c(NA, 100, 723.9983, 123),
                          y=c(-10, -5, 0, NA),
                          z=c(NA, "apple", "orange", "orange"))
 
 
 # For Edge Cases ----------------------------------------
 
-no_variance_df <- data.frame(x=c(1, 1, 1, 1), 
+no_variance_df <- data.frame(x=c(1, 1, 1, 1),
                              y=c(100, 100, 100, 100),
                              z=c("apple", "apple", "orange", "orange"))
-            
-one_color_df <- data.frame(x=c(100.00, 2123, 8723.9983, 123), 
+
+one_color_df <- data.frame(x=c(100.00, 2123, 8723.9983, 123),
                                  y=-11:-8,
                                  z=c("apple", "apple", "apple", "apple"))
 
-outliers_df <- data.frame(x=c(-10000000, 2123, 8723.9983, 123), 
+outliers_df <- data.frame(x=c(-10000000, 2123, 8723.9983, 123),
                           y=c(-10, -5, 0, 10000000),
                           z=c("apple", "apple", "orange", "orange"))
 
 
-two_rows_df <- data.frame(x=c(100, 200), 
+two_rows_df <- data.frame(x=c(100, 200),
                           y=c(10, 20),
                           z=c("apple", "orange"))
 
@@ -48,16 +49,16 @@ empty_df <- data.frame(x = integer(),
                        y = integer(),
                        z = character())
 
-one_row_df <- data.frame(x=c(100), 
+one_row_df <- data.frame(x=c(100),
                           y=c(10),
                           z=c("apple"))
-                                 
-wrong_dtype_df <- data.frame(x=c("100", "200", "300", "400"), 
+
+wrong_dtype_df <- data.frame(x=c("100", "200", "300", "400"),
                          y=c(TRUE, FALSE, FALSE, TRUE),
-                         z=c("apple", "orange", "cherry", "peach")) 
+                         z=c("apple", "orange", "cherry", "peach"))
 
 
-                                 
+
 # ---------EXPECTED FUNCTION OUTPUT FROM PLOT_REGRESSION_SCATTERPLOT()-----------
 
 # since this function is a plot, the expected output will either be a chart or an error message
@@ -65,7 +66,7 @@ wrong_dtype_df <- data.frame(x=c("100", "200", "300", "400"),
 
 # Expected Cases ------------------------
 
-plot_two_numeric_columns <- ggplot(two_numeric_columns, aes(x = x, y = y)) +
+plot_two_numeric_columns <- ggplot2::ggplot(two_numeric_columns, aes(x = x, y = y)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -74,7 +75,7 @@ plot_two_numeric_columns <- ggplot(two_numeric_columns, aes(x = x, y = y)) +
     title = "Plot Title")
 
 
-plot_two_negative_numeric_columns <- ggplot(two_numeric_columns, aes(x = neg_x, y = neg_y)) +
+plot_two_negative_numeric_columns <- ggplot2::ggplot(two_numeric_columns, aes(x = neg_x, y = neg_y)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -83,7 +84,7 @@ plot_two_negative_numeric_columns <- ggplot(two_numeric_columns, aes(x = neg_x, 
     title = "Plot Title")
 
 
-plot_two_numeric_columns_color  <- ggplot(two_numeric_columns_color, 
+plot_two_numeric_columns_color  <- ggplot2::ggplot(two_numeric_columns_color,
                                           aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
@@ -93,7 +94,7 @@ plot_two_numeric_columns_color  <- ggplot(two_numeric_columns_color,
     title = "Plot Title")
 
 
-plot_mixed_col_types <- ggplot(mixed_col_types_df, aes(x = x, y = y, color = z)) +
+plot_mixed_col_types <- ggplot2::ggplot(mixed_col_types_df, aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -101,7 +102,7 @@ plot_mixed_col_types <- ggplot(mixed_col_types_df, aes(x = x, y = y, color = z))
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_missing <- ggplot(missing_df, aes(x = x, y = y, color = z)) +
+plot_missing <- ggplot2::ggplot(missing_df, aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -109,7 +110,7 @@ plot_missing <- ggplot(missing_df, aes(x = x, y = y, color = z)) +
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_no_line_se <- ggplot(two_numeric_columns_color, 
+plot_no_line_se <- ggplot2::ggplot(two_numeric_columns_color,
                           aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = FALSE, color = "black") +
@@ -118,8 +119,8 @@ plot_no_line_se <- ggplot(two_numeric_columns_color,
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_line_color <- ggplot(two_numeric_columns_color, 
-                          aes(x = x, y = y, color = z)) +
+plot_line_color <- ggplot2::ggplot(two_numeric_columns_color,
+                         aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "blue") +
   labs(
@@ -128,7 +129,7 @@ plot_line_color <- ggplot(two_numeric_columns_color,
     title = "Plot Title")
 
 
-plot_labels <- ggplot(two_numeric_columns_color, 
+plot_labels <- ggplot2::ggplot(two_numeric_columns_color,
                           aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
@@ -140,7 +141,7 @@ plot_labels <- ggplot(two_numeric_columns_color,
 
 # Edge Cases -----------------------------------
 
-plot_no_variance  <- ggplot(no_variance_df, aes(x = x, y = y, color = z)) +
+plot_no_variance  <- ggplot2::ggplot(no_variance_df,aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -148,7 +149,7 @@ plot_no_variance  <- ggplot(no_variance_df, aes(x = x, y = y, color = z)) +
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_color_one_class  <- ggplot(one_color_df, aes(x = x, y = y, color = z)) +
+plot_color_one_class  <- ggplot2::ggplot(one_color_df, aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -157,7 +158,7 @@ plot_color_one_class  <- ggplot(one_color_df, aes(x = x, y = y, color = z)) +
     title = "Plot Title")
 
 
-plot_outliers  <- ggplot(outliers_df, aes(x = x, y = y, color = z)) +
+plot_outliers  <- ggplot2::ggplot(outliers_df, aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -167,7 +168,7 @@ plot_outliers  <- ggplot(outliers_df, aes(x = x, y = y, color = z)) +
   )
 
 
-plot_two_rows  <- ggplot(two_rows_df, aes(x = x, y = y, color = z)) +
+plot_two_rows  <- ggplot2::ggplot(two_rows_df, ggplot2::aes(x = x, y = y, color = z)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   labs(
@@ -189,5 +190,5 @@ plot_one_row <- "Not enough data. Please input at least two rows of data"
 
 plot_wrong_dtype <- "Incorrect data type. Please specify numerical data for the x and y-axis"
 
- 
+
 plot_line_se_bool <- "Invalid argument. Please enter a boolean argument"

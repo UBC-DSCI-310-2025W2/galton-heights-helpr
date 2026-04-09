@@ -14,6 +14,7 @@ Imports:
     magrittr,
     rlang,
     rsample,
+    tibble,
     tidyr,
     yardstick
 Config/testthat/edition: 3

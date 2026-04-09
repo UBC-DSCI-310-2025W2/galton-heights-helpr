@@ -1,6 +1,6 @@
 # Create a simple fitted model for testing
 set.seed(123)
-sample_data <- tibble(
+sample_data <- tibble::tibble(
   childHeight = c(60, 62, 64, 66, 68, 70, 72, 74),
   midparentHeight = c(61, 63, 65, 67, 69, 71, 73, 75),
   gender = c("male", "female", "male", "female", "male", "female", "male", "female")
@@ -59,7 +59,7 @@ test_that("evaluate_model works with custom truth column name", {
 
 test_that("evaluate_model returns zero error for perfect predictions", {
 
-  perfect_data <- tibble(
+  perfect_data <- tibble::tibble(
     childHeight = c(60, 62, 64, 66, 68),
     midparentHeight = c(60, 62, 64, 66, 68)
   )
