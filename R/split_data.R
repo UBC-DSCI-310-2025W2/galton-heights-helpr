@@ -29,7 +29,7 @@ split_data <- function(file_path, prop = 0.8, seed = NULL) {
   }
 
   # Read data
-  data <- read_csv(file_path, show_col_types = FALSE)
+  data <- readr::read_csv(file_path, show_col_types = FALSE)
 
   # Error if the dataset is too small
   if (nrow(data) < 2) {
@@ -37,10 +37,10 @@ split_data <- function(file_path, prop = 0.8, seed = NULL) {
   }
 
   # Split
-  split <- initial_split(data, prop = prop)
+  split <- rsample::initial_split(data, prop = prop)
 
-  train <- training(split)
-  test <- testing(split)
+  train <- rsample::training(split)
+  test <- rsample::testing(split)
 
   # Return as list
   return(list(train = train, test = test))

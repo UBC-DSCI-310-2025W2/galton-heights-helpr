@@ -49,7 +49,7 @@ To be used with docopt
 
 plot_regression_scatterplot <- function(df =  data.frame(x=c(10, 20, 30, 40),
                                                          y=c(-10, -50, -100, -150),
-                                                         z=c("class1", "class2", "class3", "class4")),
+                                                         z=c("class1", "class2" "class3", "class4"))
                                                x_var = "x",
                                                y_var = "y",
                                                color_var = "z",
