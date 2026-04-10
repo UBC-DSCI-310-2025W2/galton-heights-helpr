@@ -6,12 +6,12 @@ Minimum viable product for package What has been done:
 - Removed the library() and source() calls --> use use_package() to add those dependencies to DESCRIPTION instead
 - Migrated the testthat testing suite to the package --> cant figure out why evaluate_model.R will not pass. the helper-file also won't work for some reason??
 - Added a MIT license as a placeholder
-
+- pinned the packages since we removed library(). they should be all there(?)
 
 DO NOT MERGE THE NEW BRANCH I MADE
 - i nested the package project within our project repo which is bad practice
 - i did that just so I had somewhere to start so I could push the package to its own repo
-- the testing suite runs there but wont run on its own here??
+- the tests for evaluate-model all fail
 
 
 
