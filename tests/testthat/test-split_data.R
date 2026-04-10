@@ -6,7 +6,7 @@ test_that("split_data returns correct structure for default proportion", {
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1:100)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   result <- split_data(temp_file)
 
@@ -21,7 +21,7 @@ test_that("split_data works with different proportion", {
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1:75)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   result <- split_data(temp_file, prop = 0.6)
 
@@ -35,7 +35,7 @@ test_that("split_data is reproducible with set seed", {
 
   temp_file <- tempfile(fileext = ".csv")
   df <- data.frame(x = 1:100)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   result1 <- split_data(temp_file, prop = 0.85, seed = 123)
   result2 <- split_data(temp_file, prop = 0.85, seed = 123)
@@ -51,7 +51,7 @@ test_that("split_data works with small datasets greater than 1", {
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1:2)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   result <- split_data(temp_file, prop = 0.5)
 
@@ -65,7 +65,7 @@ test_that("split_data works with proportion close to 1", {
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1:60)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   result <- split_data(temp_file, prop = 0.99)
 
@@ -88,7 +88,7 @@ test_that("split_data returns error with datasets less than 2", {
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   expect_error(
     split_data(temp_file)
@@ -100,7 +100,7 @@ test_that("split_data returns error with invalid proportion (e.g., 0, 1, negativ
   temp_file <- tempfile(fileext = ".csv")
 
   df <- data.frame(x = 1:10)
-  write_csv(df, temp_file)
+  readr::write_csv(df, temp_file)
 
   expect_error(
     split_data(temp_file, prop = 0)
