@@ -12,10 +12,13 @@ Imports:
     dplyr,
     ggplot2,
     magrittr,
+    parsnip,
+    recipes,
     rlang,
     rsample,
     tibble,
     tidyr,
+    workflows,
     yardstick
 Config/testthat/edition: 3
 Suggests: 

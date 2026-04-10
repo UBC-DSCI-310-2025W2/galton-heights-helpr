@@ -1,3 +1,5 @@
+#' @importFrom ggplot2 ggplot aes geom_point geom_smooth labs
+
 
 # function input for tests for plot_regression_scatterplot
 
@@ -66,74 +68,74 @@ wrong_dtype_df <- data.frame(x=c("100", "200", "300", "400"),
 
 # Expected Cases ------------------------
 
-plot_two_numeric_columns <- ggplot2::ggplot(two_numeric_columns, aes(x = x, y = y)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_two_numeric_columns <- ggplot2::ggplot(two_numeric_columns, ggplot2::aes(x = x, y = y)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 
-plot_two_negative_numeric_columns <- ggplot2::ggplot(two_numeric_columns, aes(x = neg_x, y = neg_y)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_two_negative_numeric_columns <- ggplot2::ggplot(two_numeric_columns, ggplot2::aes(x = neg_x, y = neg_y)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 
 plot_two_numeric_columns_color  <- ggplot2::ggplot(two_numeric_columns_color,
-                                          aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+                                                   ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 
-plot_mixed_col_types <- ggplot2::ggplot(mixed_col_types_df, aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_mixed_col_types <- ggplot2::ggplot(mixed_col_types_df, ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_missing <- ggplot2::ggplot(missing_df, aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_missing <- ggplot2::ggplot(missing_df, ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 plot_no_line_se <- ggplot2::ggplot(two_numeric_columns_color,
-                          aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = FALSE, color = "black") +
-  labs(
+                                   ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = FALSE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 plot_line_color <- ggplot2::ggplot(two_numeric_columns_color,
-                         aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "blue") +
-  labs(
+                                   ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 
 plot_labels <- ggplot2::ggplot(two_numeric_columns_color,
-                          aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+                               ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "NEW Label for X-Axis",
     y = "NEW Label for Y-Axis",
     title = "NEW Plot Title")
@@ -141,27 +143,30 @@ plot_labels <- ggplot2::ggplot(two_numeric_columns_color,
 
 # Edge Cases -----------------------------------
 
-plot_no_variance  <- ggplot2::ggplot(no_variance_df,aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_no_variance  <- ggplot2::ggplot(no_variance_df,
+                                     ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
-plot_color_one_class  <- ggplot2::ggplot(one_color_df, aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_color_one_class  <- ggplot2::ggplot(one_color_df,
+                                         ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "Label for X-Axis",
     y = "Label for Y-Axis",
     title = "Plot Title")
 
 
-plot_outliers  <- ggplot2::ggplot(outliers_df, aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+plot_outliers  <- ggplot2::ggplot(outliers_df,
+                                  ggplot2::aes(x = x, y = y, color = z)) +
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "X Label",
     y = "Y Label",
     title = "Edge Case - Outliers in X and Y"
@@ -169,9 +174,9 @@ plot_outliers  <- ggplot2::ggplot(outliers_df, aes(x = x, y = y, color = z)) +
 
 
 plot_two_rows  <- ggplot2::ggplot(two_rows_df, ggplot2::aes(x = x, y = y, color = z)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  labs(
+  ggplot2::geom_point(alpha = 0.5) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "black") +
+  ggplot2::labs(
     x = "X Label",
     y = "Y Label",
     title = "Edge Case - Only Two Rows of Data"
