@@ -1,34 +1,36 @@
 # Contributing to galtonheightshelpr
 
+We welcome all contributions to this project!
 This outlines how to propose a change to galtonheightshelpr.
-For a detailed discussion on contributing to this and other tidyverse packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
 
-## Fixing typos
+## Core Team Members
 
-You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the _source_ file. 
-This generally means you'll need to edit [roxygen2 comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`, not a `.Rd` file. 
-You can find the `.R` file that generates the `.Rd` by reading the comment in the first line.
+If you are a core contributor with access to the main repository:
 
-## Bigger changes
+1. Pull the latest changes from `main` before creating a new branch (`git pull origin main`) to avoid merge conflicts.
+2. Create a new branch from `main` for your feature or bug fix.
+3. Make your changes and commit them with a descriptive commit message.
+4. Push your branch and open a pull request (PR) against `main`.
+5. Request a review from at least one other core team member.
+6. PRs will be reviewed within 7 days. Once approved, the author merges the PR.
+7. Delete the branch after merging.
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
+## Arms-Length Contributors
+
+If you are an external contributor:
+
+If you want to make a big change, it's a good idea to first file an issue [here](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/issues) and make sure someone from the team agrees that it’s needed. 
 If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
 [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
 See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
 
 ### Pull request process
 
-*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("UBC-DSCI-310-2025W2/galton-heights-helpr", fork = TRUE)`.
-
-*   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
-    If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
-*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
-
-*   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
-    The title of your PR should briefly describe the change.
-    The body of your PR should contain `Fixes #issue-number`.
-
-*  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
+1. Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("UBC-DSCI-310-2025W2/galton-heights-helpr", fork = TRUE)`.
+2. Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
+3. Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
+4. Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain `Fixes #issue-number`.
+5. PRs will be reviewed within 7 days.
 
 ### Code style
 
