@@ -42,7 +42,7 @@ test_that("plot_regression_scatterplot will run without error for two numeric co
                                        y_var = "y")
 
 
-  expect_doppelganger("two numeric columns, no missing",
+ vdiffr::expect_doppelganger("two numeric columns, no missing",
                       plot_two_numeric_columns) #should be identical to expected output in helper file
 })
 
@@ -54,7 +54,7 @@ test_that("plot_regression_scatterplot will run without error for two numeric co
                                        x_var = "neg_x",
                                        y_var = "neg_y")
 
-  expect_doppelganger("two negative numeric columns, no missing",
+  vdiffr::expect_doppelganger("two negative numeric columns, no missing",
                       plot_two_negative_numeric_columns) #should be identical to expected output in helper file
 
 
@@ -67,7 +67,7 @@ test_that("plot_regression_scatterplot will run without error for two numeric co
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("two numeric columns with color",
+  vdiffr::expect_doppelganger("two numeric columns with color",
                       plot_two_numeric_columns_color) #should be identical to expected output in helper file
 
 
@@ -81,7 +81,7 @@ test_that("plot_regression_scatterplot will run without error for two numeric co
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("two numeric columns with categorical color column",
+  vdiffr::expect_doppelganger("two numeric columns with categorical color column",
                       plot_mixed_col_types) #should be identical to expected output in helper file
 
 
@@ -96,7 +96,7 @@ test_that("plot_regression_scatterplot will run without error for data with miss
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("has missing values in axis columns and color column",
+  vdiffr::expect_doppelganger("has missing values in axis columns and color column",
                       plot_missing) #should be identical to expected output in helper file
 
 
@@ -113,7 +113,7 @@ test_that("plot_regression_scatterplot will not have the standard deviation of t
                                        line_se = FALSE)
 
 
-  expect_doppelganger("line_se is specified FALSE",
+  vdiffr::expect_doppelganger("line_se is specified FALSE",
                       plot_no_line_se) #should be identical to expected output in helper file
 
 })
@@ -128,7 +128,7 @@ test_that("plot_regression_scatterplot will generate a regression line of the sp
                                        color_var = "z",
                                        line_color = "blue")
 
-  expect_doppelganger("regression line should be blue",
+  vdiffr::expect_doppelganger("regression line should be blue",
                       plot_line_color) #should be identical to expected output in helper file
 
 
@@ -146,7 +146,7 @@ test_that("plot_regression_scatterplot will run display specified title and axis
                                        y_labs = "New Y-Axis Label",
                                        title_labs = "New Title")
 
-  expect_doppelganger("chart should have specified axis labels and title",
+  vdiffr::expect_doppelganger("chart should have specified axis labels and title",
                       plot_labels) #should be identical to expected output in helper file
 
 
@@ -161,7 +161,7 @@ test_that("plot_regression_scatterplot will run without error for data with no v
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("data has no variance, should not have a regression line",
+  vdiffr::expect_doppelganger("data has no variance, should not have a regression line",
                       plot_no_variance) #should be identical to expected output in helper file
 
 })
@@ -174,7 +174,7 @@ test_that("plot_regression_scatterplot will have datapoints all be the same colo
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("specified color column has only one class",
+  vdiffr::expect_doppelganger("specified color column has only one class",
                       plot_color_one_class) #should be identical to expected output in helper file
 
 })
@@ -187,7 +187,7 @@ test_that("plot_regression_scatterplot will plot outliers without error", {
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("outliers in x and y axis",
+  vdiffr::expect_doppelganger("outliers in x and y axis",
                       plot_outliers) #should be identical to expected output in helper file
 
 
@@ -202,7 +202,7 @@ test_that("plot_regression_scatterplot will plot a regression graph with only tw
                                        y_var = "y",
                                        color_var = "z")
 
-  expect_doppelganger("dataset with only twos",
+  vdiffr::expect_doppelganger("dataset with only twos",
                       plot_two_rows) #should be identical to expected output in helper file
 
 

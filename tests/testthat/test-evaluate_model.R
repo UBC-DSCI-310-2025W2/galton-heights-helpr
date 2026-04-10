@@ -1,21 +1,21 @@
 # Create a simple fitted model for testing
 set.seed(123)
-sample_data <- tibble(
+sample_data <- tibble::tibble(
   childHeight = c(60, 62, 64, 66, 68, 70, 72, 74),
   midparentHeight = c(61, 63, 65, 67, 69, 71, 73, 75),
   gender = c("male", "female", "male", "female", "male", "female", "male", "female")
 )
 
-lm_spec <- linear_reg() %>%
-  set_engine("lm") %>%
-  set_mode("regression")
+lm_spec <- parsnip::linear_reg() %>%
+  parsnip::set_engine("lm") %>%
+  parsnip::set_mode("regression")
 
-lm_recipe <- recipe(childHeight ~ midparentHeight + gender, data = sample_data)
+lm_recipe <- recipes::recipe(childHeight ~ midparentHeight + gender, data = sample_data)
 
-lm_fit <- workflow() %>%
-  add_recipe(lm_recipe) %>%
-  add_model(lm_spec) %>%
-  fit(data = sample_data)
+lm_fit <-  workflows::workflow() %>%
+  workflows::add_recipe(lm_recipe) %>%
+  workflows::add_model(lm_spec) %>%
+  parsnip::fit(data = sample_data)
 
 # Tests for simple expected use cases
 
@@ -40,14 +40,14 @@ test_that("evaluate_model returns numeric metric values", {
 test_that("evaluate_model works with custom truth column name", {
 
   renamed_data <- sample_data %>%
-    rename(height = childHeight)
+    dplyr::rename(height = childHeight)
 
-  custom_recipe <- recipe(height ~ midparentHeight + gender, data = renamed_data)
+  custom_recipe <- recipes::recipe(height ~ midparentHeight + gender, data = renamed_data)
 
-  custom_fit <- workflow() %>%
-    add_recipe(custom_recipe) %>%
-    add_model(lm_spec) %>%
-    fit(data = renamed_data)
+  custom_fit <-  workflows::workflow() %>%
+    workflows::add_recipe(custom_recipe) %>%
+    workflows::add_model(lm_spec) %>%
+    parsnip::fit(data = renamed_data)
 
   result <- evaluate_model(custom_fit, renamed_data, truth_col = "height")
 
@@ -59,21 +59,21 @@ test_that("evaluate_model works with custom truth column name", {
 
 test_that("evaluate_model returns zero error for perfect predictions", {
 
-  perfect_data <- tibble(
+  perfect_data <- tibble::tibble(
     childHeight = c(60, 62, 64, 66, 68),
     midparentHeight = c(60, 62, 64, 66, 68)
   )
 
-  perfect_spec <- linear_reg() %>%
-    set_engine("lm") %>%
-    set_mode("regression")
+  perfect_spec <- parsnip::linear_reg() %>%
+    parsnip::set_engine("lm") %>%
+    parsnip::set_mode("regression")
 
-  perfect_recipe <- recipe(childHeight ~ midparentHeight, data = perfect_data)
+  perfect_recipe <- recipes::recipe(childHeight ~ midparentHeight, data = perfect_data)
 
-  perfect_fit <- workflow() %>%
-    add_recipe(perfect_recipe) %>%
-    add_model(perfect_spec) %>%
-    fit(data = perfect_data)
+  perfect_fit <-  workflows::workflow() %>%
+    workflows::add_recipe(perfect_recipe) %>%
+    workflows::add_model(perfect_spec) %>%
+    parsnip::fit(data = perfect_data)
 
   result <- evaluate_model(perfect_fit, perfect_data)
 
@@ -109,7 +109,7 @@ test_that("evaluate_model returns error when truth_col is not a single string", 
 test_that("evaluate_model returns error when truth column is missing", {
 
   bad_data <- sample_data %>%
-    select(-childHeight)
+    dplyr::select(-childHeight)
 
   expect_error(
     evaluate_model(lm_fit, bad_data)
