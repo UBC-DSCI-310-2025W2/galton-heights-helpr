@@ -44,8 +44,11 @@ evaluate_model <- function(fit, test_data, truth_col = "childHeight") {
   metrics <- yardstick::metrics(
     preds,
     truth = !!rlang::sym(truth_col),
-    estimate = .pred
-  )
+    estimate = .pred) |>
+    tidyr::pivot_wider(
+      names_from = .metric,
+      values_from = .estimate
+    )
 
   return(metrics)
 
