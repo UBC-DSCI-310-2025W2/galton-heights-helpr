@@ -16,23 +16,31 @@ knitr::opts_chunk$set(
 # galtonheightshelpr
 
 <!-- badges: start -->
-
  
 Tests Status: [![R-CMD-check.yaml](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/actions/workflows/R-CMD-check.yaml)
 
 <!-- badges: end -->
+
+
+
+## Overview 
+
+
+The goal of galtonheightshelpr is to provide helpful functions for analyzing the Galton Height Dataset. It provides functions for commonly performed tasks such as cleaning the data, splitting the dataset into a train/test split, and producing simple regression scatterplots. 
+
+This package was created for the Galton Height Linear Regression Analysis project by DSCI 310 Group 16. Our project can be found [here](https://github.com/UBC-DSCI-310-2025W2/dsci-310-group-16). 
+
+
 ## A Quick Word 
 
-The goal of galtonheightshelpr is to provide helpful functions for analyzing the GaltonHeights Dataset. It provides functions for commonly performed tasks such as cleaning the data, splitting the dataset into a train/test split, and producing simple regression scatterplots. 
+galtonheightshelpr was built upon commonly used R metapackages, such as [tidyverse](https://ggplot2.tidyverse.org/) for data processing and manipulation and [tidymodels](https://www.tidymodels.org/) for modelling and statistical analysis. As such, those packages have equivalent functionalities as galtonheightshelpr and can be used in lieu of this package. For general data cleaning tasks or statistical modelling, we would recommend using these general metapackages or curated domain-specific tools. 
 
-galtonheightshelpr was built upon commonly used R metapackages, such as [tidyverse](https://ggplot2.tidyverse.org/) for data processing and manipulation and [tidymodels](https://www.tidymodels.org/) for modelling and statistical analysis. As such, those packages have equivalent functionalities as galtonheighthelpr and can be used in lieu of this package. For general data cleaning tasks or statistical modelling, we would recommend using these general metapackages or curated domain-specific tools. 
-
-While these existing packages are powerful, flexible tools that are applicable for a variety of applications, galtonheightshelpr is tailored specifically for the GaltonHeights Dataset and its related analyses. This package provides and pre-compiles functions needed to produce a multiple linear regression, allowing users to implement their own analysis with ease.  
+While these existing packages are powerful, flexible tools that are applicable for a variety of applications, galtonheightshelpr is tailored specifically for the Galton Height Dataset and its related analyses. This package provides and pre-compiles functions needed to produce a multiple linear regression, allowing users to implement their own analysis with ease.  
 
 
 ## Package Overview 
 
-Galtonheightshelpr contains four functions:
+galtonheightshelpr contains four functions:
 
 1. `rename_and_drop_na()`: Combines the functionality of `dplyr::rename` and `tidyr::dropna()`to perform basic data cleaning
 
