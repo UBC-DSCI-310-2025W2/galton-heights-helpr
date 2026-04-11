@@ -32,8 +32,8 @@ evaluate_model <- function(fit, test_data, truth_col = "childHeight") {
   }
 
   # Generate predictions and combine with test data
-  preds <- predict(fit, test_data) %>%
-    bind_cols(test_data)
+  preds <- predict(fit, test_data) |>
+    dplyr::bind_cols(test_data)
 
   # Error if prediction column was not created
   if (!(".pred" %in% colnames(preds))) {
@@ -44,8 +44,12 @@ evaluate_model <- function(fit, test_data, truth_col = "childHeight") {
   metrics <- yardstick::metrics(
     preds,
     truth = !!rlang::sym(truth_col),
-    estimate = .pred
-  )
+    estimate = .pred) |>
+    tidyr::pivot_wider(
+      names_from = .metric,
+      values_from = .estimate
+    )
 
   return(metrics)
+
 }
