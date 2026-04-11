@@ -49,7 +49,7 @@ plot_regression_scatterplot <- function(df,
                                         title_labs = "Plot Title") {
 
 
-  if (!(x_var %in% colnames(df)) & !(y_var %in% colnames(df))) {
+  if (!(x_var %in% colnames(df)) | !(y_var %in% colnames(df))) {
     stop("Column does not exist. Please enter a valid column name")
   }
 
@@ -87,7 +87,7 @@ plot_regression_scatterplot <- function(df,
         y = !!y_sym,
         color = !!color_sym))
 
-} else {
+  } else {
 
     p <- ggplot2::ggplot(
       df,
