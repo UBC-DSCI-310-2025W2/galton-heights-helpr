@@ -9,6 +9,8 @@
 
 <!-- badges: end -->
 
+This package was created for the Galton Heights Linear Regression Analysis project by DSCI 310 Group 16. Our project can be found [here](https://github.com/UBC-DSCI-310-2025W2/dsci-310-group-16). 
+
 The goal of galtonheightshelpr is to provide helpful functions for
 analyzing the GaltonHeights Dataset. It provides functions for commonly
 performed tasks such as cleaning the data, splitting the dataset into a
@@ -87,7 +89,7 @@ regression_scatter <- plot_regression_scatterplot(cleaned_data,
 
 ```
 
-## Usage
+## Testing
 
 This package is equipped with a test suite, developed using `testthat`.
 To run all tests, use the following command:
