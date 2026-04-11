@@ -12,7 +12,7 @@ Tests Status:
 
 ## Overview
 
-The goal of galtonheightshelpr is to provide helpful functions for
+The goal of `galtonheightshelpr` is to provide helpful functions for
 analyzing the Galton Height Dataset. It provides functions for commonly
 performed tasks such as cleaning the data, splitting the dataset into a
 train/test split, and producing simple regression scatterplots.
@@ -23,17 +23,17 @@ Analysis project by DSCI 310 Group 16. Our project can be found
 
 ## A Quick Word
 
-galtonheightshelpr was built upon commonly used R metapackages, such as
+`galtonheightshelpr` was built upon commonly used R metapackages, such as
 [tidyverse](https://ggplot2.tidyverse.org/) for data processing and
 manipulation and [tidymodels](https://www.tidymodels.org/) for modelling
 and statistical analysis. As such, those packages have equivalent
-functionalities as galtonheightshelpr and can be used in lieu of this
+functionalities as `galtonheightshelpr` and can be used in lieu of this
 package. For general data cleaning tasks or statistical modelling, we
 would recommend using these general metapackages or curated
 domain-specific tools.
 
 While these existing packages are powerful, flexible tools that are
-applicable for a variety of applications, galtonheightshelpr is tailored
+applicable for a variety of applications, `galtonheightshelpr` is tailored
 specifically for the Galton Height Dataset and its related analyses.
 This package provides and pre-compiles functions needed to produce a
 multiple linear regression, allowing users to implement their own
@@ -41,7 +41,7 @@ analysis with ease.
 
 ## Package Overview
 
-galtonheightshelpr contains four functions:
+`galtonheightshelpr` contains four functions:
 
 1.  `rename_and_drop_na()`: Combines the functionality of
     `dplyr::rename` and `tidyr::dropna()`to perform basic data cleaning
@@ -59,7 +59,7 @@ galtonheightshelpr contains four functions:
 
 ## Installation
 
-You can install the development version of galtonheightshelpr from
+You can install the development version of `galtonheightshelpr` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -89,7 +89,7 @@ train <- split$train
 test <- split$test
 
 
-# Fitting a model on testing split
+# Generating test metrics from fitted model on testing data
 metrics <- evaluate_model(fitted_model, test, truth_col = "target_feature")
 
 # Scatterplot with regression line
@@ -129,13 +129,13 @@ This package was built using the following tools and packages:
 We welcome contributions and feedback for our project!
 
 To contribute to the project, please refer to the
-(CONTRIBUTING.md)\[<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CONTRIBUTING.md>\]
+[CONTRIBUTING.md](<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CONTRIBUTING.md>)
 for more details.
 
 ## Code of Conduct
 
-This project abides by a (Code of
-Conduct)\[<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CODE_OF_CONDUCT.md>\].
+This project abides by a [Code of
+Conduct](<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CODE_OF_CONDUCT.md>).
 Contributing to this project will imply acceptance and acknowledgement
 of these terms.
 
