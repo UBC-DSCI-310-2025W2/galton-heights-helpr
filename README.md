@@ -5,9 +5,12 @@
 
 <!-- badges: start -->
 
+Tests Status:
 [![R-CMD-check.yaml](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/actions/workflows/R-CMD-check.yaml)
 
 <!-- badges: end -->
+
+## A Quick Word
 
 The goal of galtonheightshelpr is to provide helpful functions for
 analyzing the GaltonHeights Dataset. It provides functions for commonly
@@ -15,17 +18,22 @@ performed tasks such as cleaning the data, splitting the dataset into a
 train/test split, and producing simple regression scatterplots.
 
 galtonheightshelpr was built upon commonly used R metapackages, such as
-[tidyverse](https://ggplot2.tidyverse.org/) and
-[tidymodels](https://www.tidymodels.org/). As such, those packages have
-equivalent functionalities as galtonheighthelpr and can be used in lieu
-of this package.
+[tidyverse](https://ggplot2.tidyverse.org/) for data processing and
+manipulation and [tidymodels](https://www.tidymodels.org/) for modelling
+and statistical analysis. As such, those packages have equivalent
+functionalities as galtonheighthelpr and can be used in lieu of this
+package. For general data cleaning tasks or statistical modelling, we
+would recommend using these general metapackages or curated
+domain-specific tools.
 
 While these existing packages are powerful, flexible tools that are
 applicable for a variety of applications, galtonheightshelpr is tailored
-specifically the GaltonHeights Dataset and its related analyses. This
-package provides and pre-compiles functions needed to produce a multiple
-linear regression, allowing users to implement their own analysis with
-ease.
+specifically for the GaltonHeights Dataset and its related analyses.
+This package provides and pre-compiles functions needed to produce a
+multiple linear regression, allowing users to implement their own
+analysis with ease.
+
+## Package Overview
 
 Galtonheightshelpr contains four functions:
 
@@ -33,15 +41,15 @@ Galtonheightshelpr contains four functions:
     `dplyr::rename` and `tidyr::dropna()`to perform basic data cleaning
 
 2.  `split_data()` : Splits the dataset into train/test split.
-    Equivalent functionality as
-    `initial_split(),`training()`, and`testing()`from`rsample\` package.
+    Equivalent functionality as `initial_split()`, `training()`, and
+    `testing()` from `rsample` package.
 
-3.  `plot_regression_scatterplot()` : Produces a regression plot with
+3.  `plot_regression_scatterplot()` : Produces a regression plot with a
     fitted linear regression line. Created using `ggplot2` package and
     inherited arguments
 
-4, `evaluate_model()`: Takes a fitted model and tesing data and eturns
-the testing metrics from `yardstick` package
+4.  `evaluate_model()`: Takes a fitted model and tesing data and returns
+    the testing metrics from `yardstick` package
 
 ## Installation
 
@@ -55,7 +63,9 @@ devtools::install_github("UBC-DSCI-310-2025W2/galton-heights-helpr")
 
 ## Usage
 
-Below is an example workflow using the package functions
+Below is an example workflow using the package functions. The goal is to
+return a tidy dataframe containing the testing results for a
+classification model built using multiple linear regression.
 
 ``` r
 library(galtonheightshelpr)
@@ -87,7 +97,7 @@ regression_scatter <- plot_regression_scatterplot(cleaned_data,
 
 ```
 
-## Usage
+## Package Testing
 
 This package is equipped with a test suite, developed using `testthat`.
 To run all tests, use the following command:
@@ -95,6 +105,18 @@ To run all tests, use the following command:
 ``` r
 devtools::test()
 ```
+
+## Attribution
+
+This package was built using the following tools and packages:
+
+- devtools (2.5.0)
+- remotes (2.5.0)
+- vdiffr (1.0.9)
+- usethis (3.2.1)
+- tidyverse (2.0.0)
+- tidymodels (1.4.1)
+- rmarkdown (2.30)
 
 ## Contributing
 
@@ -108,4 +130,11 @@ for more details.
 
 This project abides by a (Code of
 Conduct)\[<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CODE_OF_CONDUCT.md>\].
-Contributing to this project will mean you abide by these terms.
+Contributing to this project will imply acceptance and acknowledgement
+of these terms.
+
+## License
+
+This package is equipped with a MIT license. Full details can be found
+at the
+[License.md](https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/LICENSE.md).
