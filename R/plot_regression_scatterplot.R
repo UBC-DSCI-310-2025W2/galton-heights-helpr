@@ -89,8 +89,8 @@ plot_regression_scatterplot <- function(df,
     p <- ggplot2::ggplot(
       df,
       ggplot2::aes(
-        x = rlang::.data[[x_var]],
-        y = rlang::.data[[y_var]] ))}
+        x = .data[[x_var]],
+        y = .data[[y_var]] ))}
 
   p <- p +
     ggplot2::geom_point(alpha = 0.5) +
