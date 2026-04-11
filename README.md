@@ -101,11 +101,11 @@ devtools::test()
 We welcome contributions and feedback for our project!
 
 To contribute to the project, please refer to the
-(CONTRIBUTING.md)\[<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CONTRIBUTING.md>\]
+[CONTRIBUTING.md](<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CONTRIBUTING.md>)
 for more details.
 
 ## Code of Conduct
 
-This project abides by a (Code of
-Conduct)\[<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CODE_OF_CONDUCT.md>\].
+This project abides by a [Code of
+Conduct](<https://github.com/UBC-DSCI-310-2025W2/galton-heights-helpr/blob/readme/CODE_OF_CONDUCT.md>).
 Contributing to this project will mean you abide by these terms.
