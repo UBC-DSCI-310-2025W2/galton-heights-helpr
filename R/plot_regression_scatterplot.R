@@ -6,8 +6,8 @@
 #'
 #'
 #' @param df A tidy dataframe
-#' @param x_var Unquoted column name to plot on the x-axis
-#' @param y_var Unquoted column name to plot on the y-axis
+#' @param x_var String column name for x-axis
+#' @param y_var String column name for y-axis
 #' @param color_var [Optional] Column name to map a color scheme to data points,
 #' @param alpha [Optional] Float from range 0,1 to control regression line transparency, default value is 0.5
 #' @param line_se [Optional] Display standard error of regression line, default value is True
@@ -73,24 +73,27 @@ plot_regression_scatterplot <- function(df,
     stop("Invalid argument. Please enter a boolean argument")
   }
 
-
+  x_sym <- rlang::sym(x_var)
+  y_sym <- rlang::sym(y_var)
 
   if (!is.null(color_var)) {
+
+    color_sym <- rlang::sym(color_var)
 
     p <- ggplot2::ggplot(
       df,
       ggplot2::aes(
-        x = .data[[x_var]],
-        y = .data[[y_var]],
-        color = .data[[color_var]]))
+        x = !!x_sym,
+        y = !!y_sym,
+        color = !!color_sym))
 
 } else {
 
     p <- ggplot2::ggplot(
       df,
       ggplot2::aes(
-        x = rlang::.data[[x_var]],
-        y = rlang::.data[[y_var]] ))}
+        x = !!x_sym,
+        y = !!y_sym))}
 
   p <- p +
     ggplot2::geom_point(alpha = 0.5) +
