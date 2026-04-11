@@ -42,7 +42,7 @@ Galtonheightshelpr contains four functions:
     fitted linear regression line. Created using `ggplot2` package and
     inherited arguments
 
-4, `evaluate_model()`: Takes a fitted model and tesing data and eturns
+4. `evaluate_model()`: Takes a fitted model and tesing data and eturns
 the testing metrics from `yardstick` package
 
 ## Installation
