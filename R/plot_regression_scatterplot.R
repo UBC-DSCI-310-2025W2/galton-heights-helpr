@@ -85,7 +85,9 @@ plot_regression_scatterplot <- function(df,
       ggplot2::aes(
         x = !!x_sym,
         y = !!y_sym,
-        color = !!color_sym))
+        color = !!color_sym)) +
+      ggplot2::geom_point(alpha = 0.5) +
+      ggplot2::geom_smooth(method = "lm", se = line_se)
 
   } else {
 
@@ -93,11 +95,12 @@ plot_regression_scatterplot <- function(df,
       df,
       ggplot2::aes(
         x = !!x_sym,
-        y = !!y_sym))}
+        y = !!y_sym)) +
+      ggplot2::geom_point(alpha = 0.5) +
+      ggplot2::geom_smooth(method = "lm", se = line_se, color = line_color)
+    }
 
   p <- p +
-    ggplot2::geom_point(alpha = 0.5) +
-    ggplot2::geom_smooth(method = "lm", se = line_se, color = line_color) +
     ggplot2::labs(
       x = x_labs,
       y = y_labs,
